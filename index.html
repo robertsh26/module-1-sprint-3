@@ -25,6 +25,12 @@
     // 🧠 The person also has an `ageGracefully` method, which increases `age` by 1 each time it's called.
     // 🧠 But there's a catch: once `age` reaches 12, the `ageGracefully` method will have no effect.
     class PeterPan {
+      name = "Joe"
+      age = 0
+      ageGracefully () {
+        if (this.age < 12)
+          this.age ++
+      } 
 
     }
 
@@ -38,8 +44,25 @@
     // 🧠 Calling `down` changes the `altitude` prop appropriately and returns the updated `altitude`.
     // 🧠 If calling `down` would cause the plane to go below altitude zero, `altitude` is set to 0 and the string "CRASH!" is returned.
     class AirPlane {
+      model = "Spitfire"
+      altitude = 0
+      up (meters) {
+        this.altitude += meters;
+        return this.altitude;
+
+      }
+      down (meters) {
+        if (this.altitude - meters < 0) {
+          this.altitude = 0;
+          return "CRASH!";
+        } else {
+          this.altitude -= meters;
+          return this.altitude;
+        }
+      }
 
     }
+    
 
     // 👉 CHALLENGE 3
     // 🧠 Build a Bulb class.
@@ -48,6 +71,32 @@
     // 🧠 The methods work as one might expect, changing the value of `isOn` to the appropriate Boolean.
     // 🧠 The methods also return one of these two strings: "You turned the bulb ON", or "You turned the bulb OFF".
     class Bulb {
+      isOn = false
+
+      turnOn () {
+        this.isOn = true;
+          return "You turned the bulb ON";
+
+      }
+
+      turnOff () {
+        this.isOn = false;
+          return "You turned the bulb OFF";
+
+      }
+
+      toggle () {
+        if (this.isOn === false) {
+          this.isOn = true;
+          return "You turned the bulsb ON";
+        } else if (this.isOn === true) {
+          this.isOn = false;
+          return "You turned the bulb OFF";
+        } else {
+          return "You turned the bulb ON";
+        }
+
+      }
 
     }
 
@@ -66,6 +115,20 @@
     //   minusThree.count() // returns null
     //   minusThree.count() // returns null
     class CountDown {
+      constructor (num) {
+        this.countDowns = num
+
+      }
+
+      count () {
+        if (this.countDowns >= 1) {
+        return `${this.countDowns--}!`
+        } else if (this.countDowns === 0) {
+          this.countDowns--
+          return "Liftoff!"
+        } else
+        return null
+      }
 
     }
 
